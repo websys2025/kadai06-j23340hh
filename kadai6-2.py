@@ -38,7 +38,7 @@ def format_date(iso_date):
 
 def display_chiba_nw_forecast(data):
     """
-    千葉県北西部の天気予報を表示する。
+    千葉県南部の天気予報を表示する。
     Args:
         data (dict): 気象庁のJSONデータ
     """
@@ -49,8 +49,8 @@ def display_chiba_nw_forecast(data):
     try:
         time_series = data[0]["timeSeries"][0]
         for area in time_series["areas"]:
-            if area["area"]["name"] == "北西部":
-                print("\n千葉北西部の天気予報")
+            if area["area"]["name"] == "南部":
+                print("\n千葉県南部の天気予報")
                 print("=" * 20)
                 for date, weather in zip(time_series["timeDefines"], area["weathers"]):
                     formatted_date = format_date(date)
